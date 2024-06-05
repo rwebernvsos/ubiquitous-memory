@@ -4,7 +4,7 @@
 // @version      1.2
 // @description  Automatically log in when logged out for different environments
 // @match        https://nvsilverflumetest.nv.gov/login*
-// @match        https://nvsilverflume.gov/login*
+// @match        https://www.nvsilverflume.gov/login*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_registerMenuCommand
