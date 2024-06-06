@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Login for SilverFlume
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Automatically log in when logged out for different environments
 // @match        https://nvsilverflumetest.nv.gov/login*
 // @match        https://www.nvsilverflume.gov/login*
@@ -72,7 +72,7 @@
 
     // Check if credentials are set
     if (!username || !password) {
-        alert(`Please set your login credentials for ${currentEnv} via the Tampermonkey menu.`);
+        alert(`Please set your login credentials for ${currentEnv}. You can also access them via the Tampermonkey menu.`);
         setCredentials();
     }
 
