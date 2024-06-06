@@ -17,7 +17,7 @@
 
     const environments = {
         'nvsilverflumetest.nv.gov': 'test',
-        'nvsilverflume.gov': 'prod'
+        'www.nvsilverflume.gov': 'prod'
     };
 
     const currentHost = window.location.host;
