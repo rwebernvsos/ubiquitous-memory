@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Auto Login for SilverFlume
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  Automatically log in when logged out for different environments
 // @match        https://nvsilverflumetest.nv.gov/login*
 // @match        https://www.nvsilverflume.gov/login*
+// @match        https://nvsilverflumetest.nv.gov/*
+// @match        https://www.nvsilverflume.gov/*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_registerMenuCommand
@@ -31,14 +33,28 @@
         GM_setValue(`password_${currentEnv}`, pass);
     }
 
-    // Register Tampermonkey menu command
-    GM_registerMenuCommand('Set Credentials', setCredentials);
+    // Function to toggle auto login
+    function toggleAutoLogin() {
+        const isEnabled = GM_getValue(`autoLoginEnabled_${currentEnv}`, true);
+        GM_setValue(`autoLoginEnabled_${currentEnv}`, !isEnabled);
+        alert(`Auto login is now ${!isEnabled ? 'enabled' : 'disabled'}.`);
+    }
 
-    // Get credentials
+    // Register Tampermonkey menu commands
+    GM_registerMenuCommand('Set Credentials', setCredentials);
+    GM_registerMenuCommand('Toggle Auto Login', toggleAutoLogin);
+
+    // Get credentials and auto login state
     const username = GM_getValue(`username_${currentEnv}`);
     const password = GM_getValue(`password_${currentEnv}`);
+    const autoLoginEnabled = GM_getValue(`autoLoginEnabled_${currentEnv}`, true);
 
     function autoLogin() {
+        if (!autoLoginEnabled) {
+            console.log('Auto login is disabled.'); // Logging
+            return;
+        }
+
         const loginForm = document.querySelector('form[action="/j_spring_security_check"]');
         if (loginForm) {
             console.log('Login form found'); // Logging
@@ -76,9 +92,11 @@
         setCredentials();
     }
 
-    // Run the check periodically
-    setInterval(checkIfLoggedOut, 30000); // Check every 30 seconds
+    // Run the check periodically if on login page
+    if (window.location.pathname.includes('/login')) {
+        setInterval(checkIfLoggedOut, 30000); // Check every 30 seconds
 
-    // Initial check
-    checkIfLoggedOut();
+        // Initial check
+        checkIfLoggedOut();
+    }
 })();
