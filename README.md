@@ -4,7 +4,7 @@ Here's an improved version of your README to make it easier to use:
 Tampermonkey scripts for NV Silverflume.
 
 ## Setup Instructions
-Follow the instructions in this [Gist](https://gist.github.com/jesterjunk/0344f1a7c1f67f52ffc716b17ee7f240) to set up Tampermonkey. When you get to step 5, install any or all of the scripts below. 
+Follow the instructions in this [Gist](https://gist.github.com/jesterjunk/0344f1a7c1f67f52ffc716b17ee7f240) to set up Tampermonkey. When you get to step 5, install any or all of the scripts below. If you install them using the URL, and have Tampermonkey configured to check for updates, you will be notified when there is an update for the script. 
 
 ## Available Scripts
 Make sure you review the scripts before using them
