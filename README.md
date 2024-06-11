@@ -1,5 +1,3 @@
-Here's an improved version of your README to make it easier to use:
-
 # Ubiquitous Memory
 Tampermonkey scripts for NV Silverflume.
 
@@ -33,6 +31,11 @@ Make sure you review the scripts before using them
 6. **Fix Dialog Box to Access OK and Cancel Buttons**
    * [RAW URL](https://github.com/rwebernvsos/ubiquitous-memory/raw/main/fix-popup-scroll.js)
    * This script ensures that you can access the OK and Cancel buttons on dialog boxes when the window is not tall enough.
+
+7. **Replace horizontal menu with side menu**
+   * [RAW URL](https://raw.githubusercontent.com/rwebernvsos/ubiquitous-memory/main/replace-menu.js)
+   * This script moves the menu to the left side, adds an extra menu item to get to in progress filings, and shows the version number.
+
 
 ## Additional Information
 * Ensure you have Tampermonkey installed in your browser before attempting to install any of the scripts.
