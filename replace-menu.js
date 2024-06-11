@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Replace Navbar with Sidebar Menu
 // @namespace    http://tampermonkey.net/
-// @version      2.5
+// @version      2.6
 // @description  Replace the horizontal navbar with a vertical sidebar menu and move logout/profile links and search bar
 // @match        https://www.nvsilverflume.gov/*
 // @match        https://nvsilverflumetest.nv.gov/*
@@ -71,7 +71,8 @@
     }
 
     function createVersionInfo() {
-        const versionInfo = document.querySelector('#footer-copyright > div:nth-child(4) > p:nth-child(1)');
+        // Version info is in a slightly different spot on prod vs test because of the content management stuff. This gets it from either spot
+        const versionInfo = document.querySelector('#footer-copyright > div:nth-child(4) > p:nth-child(1)') || document.querySelector('#footer-copyright > div:nth-child(3) > p:nth-child(1)');
         if (versionInfo) {
             const versionText = versionInfo.textContent.trim();
             const versionItem = document.createElement('div');
